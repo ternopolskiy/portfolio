@@ -1,0 +1,97 @@
+@use "../abstracts" as *;
+
+.hero {
+  min-height: 100vh;
+  @include flex-center;
+  flex-direction: column;
+  position: relative;
+  background-color: $cream;
+  overflow: hidden;
+
+  /* ── Paper texture overlay ── */
+  &__texture {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.05;
+    pointer-events: none;
+    object-fit: cover;
+  }
+
+  &__content {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    padding: 0 24px;
+  }
+
+  /* ── "Ciao." ── */
+  &__greeting {
+    font-size: 28px;
+    font-weight: 400;
+    color: $chocolate;
+    margin-bottom: 20px;
+    font-style: italic;
+
+    @include respond-to(mobile) {
+      font-size: 22px;
+    }
+  }
+
+  /* ── Name with shimmer hover ── */
+  &__name {
+    font-size: 72px;
+    font-weight: 700;
+    color: $navy;
+    letter-spacing: 0.05em;
+    margin-bottom: 0;
+    cursor: default;
+    transition: color $transition-slow;
+
+    @include respond-to(tablet) {
+      font-size: 52px;
+    }
+    @include respond-to(mobile) {
+      font-size: 34px;
+    }
+
+    &:hover {
+      background: linear-gradient(
+        90deg,
+        $navy 0%,
+        $gold 40%,
+        $navy 80%
+      );
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shimmer 3s linear infinite;
+    }
+  }
+
+  /* ── Gold divider ── */
+  &__line {
+    width: 120px;
+    height: 2px;
+    background: $gold;
+    margin: 28px auto;
+    transform-origin: center;
+  }
+
+  /* ── Subtitle ── */
+  &__title {
+    font-size: 20px;
+    font-weight: 400;
+    color: $cool-grey;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+
+    @include respond-to(mobile) {
+      font-size: 14px;
+      letter-spacing: 0.08em;
+    }
+  }
+}

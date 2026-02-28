@@ -1,0 +1,37 @@
+@use "variables" as *;
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin section-padding {
+  padding: $section-padding-y 0;
+}
+
+@mixin transition-default {
+  transition: all $transition-default;
+}
+
+@mixin container {
+  max-width: $container-width;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+@mixin respond-to($bp) {
+  @if $bp == desktop {
+    @media (max-width: $desktop) {
+      @content;
+    }
+  } @else if $bp == tablet {
+    @media (max-width: $tablet) {
+      @content;
+    }
+  } @else if $bp == mobile {
+    @media (max-width: $mobile) {
+      @content;
+    }
+  }
+}

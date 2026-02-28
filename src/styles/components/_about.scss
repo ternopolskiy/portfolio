@@ -1,0 +1,72 @@
+@use "../abstracts" as *;
+
+.about {
+  @include section-padding;
+  background: $cream;
+
+  &__inner {
+    @include container;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 80px;
+    align-items: center;
+
+    @include respond-to(tablet) {
+      grid-template-columns: 1fr;
+      gap: 40px;
+      justify-items: center;
+      text-align: center;
+    }
+  }
+
+  /* ── Photo ── */
+  &__photo-wrapper {
+    @include flex-center;
+  }
+
+  &__photo {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    border: 3px solid $gold;
+    object-fit: cover;
+    box-shadow: 0 12px 40px rgba($black, 0.1);
+
+    @include respond-to(mobile) {
+      width: 200px;
+      height: 200px;
+    }
+  }
+
+  /* ── Text block ── */
+  &__text {
+    .section-title {
+      margin-bottom: 28px;
+
+      @include respond-to(tablet) {
+        text-align: center;
+
+        .section-title__line {
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+    }
+
+    p {
+      color: rgba($navy, 0.8);
+      margin-bottom: 14px;
+      line-height: 1.8;
+
+      &:first-of-type {
+        font-size: 22px;
+        font-weight: 500;
+        color: $navy;
+
+        @include respond-to(mobile) {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}

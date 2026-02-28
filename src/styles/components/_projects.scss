@@ -1,0 +1,144 @@
+@use "../abstracts" as *;
+
+.projects {
+  @include section-padding;
+  background: $cream;
+
+  &__inner {
+    @include container;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 50px;
+
+    @include respond-to(desktop) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include respond-to(mobile) {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+/* ── Single Project Card ── */
+.project-card {
+  background: $white;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba($beige, 0.6);
+  position: relative;
+  @include transition-default;
+  display: flex;
+  flex-direction: column;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: $gold;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform $transition-default;
+  }
+
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0 20px 60px rgba($black, 0.1);
+
+    &::after {
+      transform: scaleX(1);
+    }
+
+    .project-card__image img {
+      transform: scale(1.05);
+    }
+  }
+
+  /* ── Image area ── */
+  &__image {
+    width: 100%;
+    height: 200px;
+    @include flex-center;
+    background: $beige;
+    padding: 30px;
+    overflow: hidden;
+
+    img {
+      max-height: 100%;
+      max-width: 80%;
+      object-fit: contain;
+      @include transition-default;
+    }
+  }
+
+  /* ── Content ── */
+  &__content {
+    padding: 24px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    font-size: 20px;
+    font-weight: 600;
+    color: $navy;
+    margin-bottom: 12px;
+  }
+
+  &__stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 14px;
+  }
+
+  &__tag {
+    font-size: 11px;
+    padding: 4px 12px;
+    background: rgba($beige, 0.6);
+    color: $chocolate;
+    border-radius: 20px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+
+  &__description {
+    font-size: 14px;
+    color: rgba($navy, 0.65);
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex: 1;
+  }
+
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    color: $navy;
+    @include transition-default;
+    align-self: flex-start;
+
+    &::after {
+      content: "→";
+      display: inline-block;
+      transition: transform $transition-default;
+    }
+
+    &:hover {
+      color: $gold;
+
+      &::after {
+        transform: translateX(6px);
+      }
+    }
+  }
+}

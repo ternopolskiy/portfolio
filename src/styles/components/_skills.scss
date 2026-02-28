@@ -1,0 +1,109 @@
+@use "../abstracts" as *;
+
+.skills {
+  @include section-padding;
+  background: $beige;
+
+  &__inner {
+    @include container;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 24px;
+    margin-top: 50px;
+
+    @include respond-to(mobile) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+  }
+}
+
+/* ── Single Skill Card ── */
+.skill-card {
+  background: $white;
+  border-radius: 14px;
+  padding: 28px 18px 22px;
+  text-align: center;
+  border: 1px solid rgba($gold, 0.08);
+  position: relative;
+  @include transition-default;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    width: 80%;
+    height: 2px;
+    background: $gold;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform $transition-default;
+    border-radius: 1px;
+  }
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 48px rgba($black, 0.08);
+    border-color: rgba($gold, 0.3);
+
+    &::after {
+      transform: scaleX(1);
+    }
+  }
+
+  /* ── Icon ── */
+  &__icon {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 14px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  /* ── Name ── */
+  &__name {
+    font-size: 16px;
+    font-weight: 600;
+    color: $navy;
+    margin-bottom: 10px;
+  }
+
+  /* ── Level bars ── */
+  &__level {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-bottom: 10px;
+  }
+
+  &__bar {
+    width: 22px;
+    height: 3px;
+    background: rgba($cool-grey, 0.35);
+    border-radius: 2px;
+
+    &--active {
+      background: $gold;
+    }
+
+    &--glow {
+      background: $gold;
+      box-shadow: 0 0 6px rgba($gold, 0.55), 0 0 12px rgba($gold, 0.25);
+    }
+  }
+
+  /* ── Description ── */
+  &__description {
+    font-size: 12px;
+    color: rgba($navy, 0.55);
+    line-height: 1.5;
+  }
+}

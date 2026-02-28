@@ -1,0 +1,66 @@
+@use "../abstracts" as *;
+
+.footer {
+  background: $black;
+  padding: 80px 0 40px;
+
+  &__inner {
+    @include container;
+    text-align: center;
+  }
+
+  /* ── "Grazie…" ── */
+  &__text {
+    font-size: 28px;
+    font-weight: 400;
+    color: $white;
+    font-style: italic;
+    margin-bottom: 40px;
+    letter-spacing: 0.02em;
+
+    @include respond-to(mobile) {
+      font-size: 20px;
+    }
+  }
+
+  /* ── Contact icons ── */
+  &__contacts {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 48px;
+  }
+
+  &__contact-link {
+    @include flex-center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    @include transition-default;
+
+    img {
+      width: 24px;
+      height: 24px;
+      filter: brightness(0) invert(1);
+      @include transition-default;
+    }
+
+    &:hover {
+      transform: scale(1.15);
+      background: rgba($gold, 0.1);
+
+      img {
+        filter: brightness(0) invert(1) drop-shadow(0 0 6px rgba($gold, 0.8));
+      }
+    }
+  }
+
+  /* ── Bottom line ── */
+  &__copyright {
+    font-size: 13px;
+    color: rgba($white, 0.35);
+    padding-top: 32px;
+    border-top: 1px solid rgba($white, 0.08);
+    letter-spacing: 0.02em;
+  }
+}

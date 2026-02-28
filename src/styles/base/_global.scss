@@ -1,0 +1,64 @@
+@use "../abstracts" as *;
+
+body {
+  background-color: $cream;
+  overflow-x: hidden;
+}
+
+.container {
+  @include container;
+}
+
+// ── Reusable Section Title ──
+.section-title {
+  margin-bottom: 20px;
+
+  &--centered {
+    text-align: center;
+
+    .section-title__line {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  &__subtitle {
+    display: block;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: $gold;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+
+  &__heading {
+    color: $navy;
+  }
+
+  &__line {
+    width: 60px;
+    height: 2px;
+    background: $gold;
+    margin-top: 16px;
+    transform-origin: left;
+  }
+}
+
+// ── Selection ──
+::selection {
+  background: $gold;
+  color: $navy;
+}
+
+// ── Accessibility ──
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
