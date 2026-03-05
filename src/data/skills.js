@@ -22,108 +22,162 @@ export const skills = [
     name: "Python",
     icon: python,
     level: "middle+",
-    description: "Основной язык. FastAPI, автоматизация, Telegram-боты",
+    description: {
+      ru: "Основной язык. FastAPI, автоматизация, Telegram-боты",
+      en: "Primary language. FastAPI, automation, Telegram bots",
+    },
   },
   {
     name: "JavaScript",
     icon: javascript,
     level: "middle",
-    description: "Фронтенд, API-интеграции, интерактивные интерфейсы",
+    description: {
+      ru: "Фронтенд, API-интеграции, интерактивные интерфейсы",
+      en: "Frontend, API integrations, interactive interfaces",
+    },
   },
   {
     name: "React",
     icon: react,
     level: "middle",
-    description: "SPA, компонентный подход, хуки, Vite",
+    description: {
+      ru: "SPA, компонентный подход, хуки, Vite",
+      en: "SPA, component architecture, hooks, Vite",
+    },
   },
   {
     name: "Java",
     icon: java,
     level: "medium",
-    description: "Spring Boot, серверная разработка, Clean Architecture",
+    description: {
+      ru: "Spring Boot, серверная разработка, Clean Architecture",
+      en: "Spring Boot, backend development, Clean Architecture",
+    },
   },
   {
     name: "HTML5",
     icon: html,
     level: "high",
-    description: "Семантическая вёрстка, доступность, SEO",
+    description: {
+      ru: "Семантическая вёрстка, доступность, SEO",
+      en: "Semantic markup, accessibility, SEO",
+    },
   },
   {
     name: "CSS3 / SCSS",
     icon: css,
     level: "high",
-    description: "Адаптивная вёрстка, анимации, препроцессоры",
+    description: {
+      ru: "Адаптивная вёрстка, анимации, препроцессоры",
+      en: "Responsive design, animations, preprocessors",
+    },
   },
   {
     name: "PostgreSQL",
     icon: postgresql,
     level: "middle",
-    description: "Проектирование БД, сложные запросы, миграции",
+    description: {
+      ru: "Проектирование БД, сложные запросы, миграции",
+      en: "Database design, complex queries, migrations",
+    },
   },
   {
     name: "SQLite",
     icon: sqlite,
     level: "middle",
-    description: "Локальные базы данных, лёгкое хранилище",
+    description: {
+      ru: "Локальные базы данных, лёгкое хранилище",
+      en: "Local databases, lightweight storage",
+    },
   },
   {
     name: "Redis",
     icon: redis,
     level: "middle",
-    description: "Кэширование, сессии, очереди задач",
+    description: {
+      ru: "Кэширование, сессии, очереди задач",
+      en: "Caching, sessions, task queues",
+    },
   },
   {
     name: "Aiogram",
     icon: aiogram,
     level: "middle+",
-    description: "Telegram-боты, FSM, middleware, webhooks",
+    description: {
+      ru: "Telegram-боты, FSM, middleware, webhooks",
+      en: "Telegram bots, FSM, middleware, webhooks",
+    },
   },
   {
     name: "Git",
     icon: git,
     level: "high",
-    description: "Контроль версий, branching, GitHub",
+    description: {
+      ru: "Контроль версий, branching, GitHub",
+      en: "Version control, branching, GitHub",
+    },
   },
   {
     name: "C++",
     icon: cpp,
     level: "basic",
-    description: "Основы алгоритмов, структуры данных",
+    description: {
+      ru: "Основы алгоритмов, структуры данных",
+      en: "Algorithm basics, data structures",
+    },
   },
   {
     name: "C#",
     icon: csharp,
     level: "basic",
-    description: "Основы ООП, .NET Framework",
+    description: {
+      ru: "Основы ООП, .NET Framework",
+      en: "OOP basics, .NET Framework",
+    },
   },
   {
     name: "Figma",
     icon: figma,
     level: "medium",
-    description: "Прототипирование, UI/UX дизайн",
+    description: {
+      ru: "Прототипирование, UI/UX дизайн",
+      en: "Prototyping, UI/UX design",
+    },
   },
   {
     name: "Photoshop",
     icon: photoshop,
     level: "basic",
-    description: "Обработка изображений, графический дизайн",
+    description: {
+      ru: "Обработка изображений, графический дизайн",
+      en: "Image processing, graphic design",
+    },
   },
   {
     name: "Premiere Pro",
     icon: premiere,
     level: "basic",
-    description: "Монтаж видео, цветокоррекция",
+    description: {
+      ru: "Монтаж видео, цветокоррекция",
+      en: "Video editing, color grading",
+    },
   },
   {
     name: "Video Production",
     icon: youtube,
     level: "medium",
-    description: "Создание и монтаж видеоконтента",
+    description: {
+      ru: "Создание и монтаж видеоконтента",
+      en: "Video content creation and editing",
+    },
   },
   {
     name: "Arduino",
     icon: arduino,
     level: "basic",
-    description: "IoT-проекты, микроконтроллеры, датчики",
+    description: {
+      ru: "IoT-проекты, микроконтроллеры, датчики",
+      en: "IoT projects, microcontrollers, sensors",
+    },
   },
 ];

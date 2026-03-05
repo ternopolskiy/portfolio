@@ -8,7 +8,6 @@
   background-color: $cream;
   overflow: hidden;
 
-  /* ── Paper texture overlay ── */
   &__texture {
     position: absolute;
     top: 0;
@@ -27,7 +26,6 @@
     padding: 0 24px;
   }
 
-  /* ── "Ciao." ── */
   &__greeting {
     font-size: 28px;
     font-weight: 400;
@@ -40,15 +38,15 @@
     }
   }
 
-  /* ── Name with shimmer hover ── */
+  /* ── Имя с плавным shimmer через ::after ── */
   &__name {
     font-size: 72px;
     font-weight: 700;
     color: $navy;
     letter-spacing: 0.05em;
-    margin-bottom: 0;
     cursor: default;
-    transition: color $transition-slow;
+    position: relative;
+    display: inline-block;
 
     @include respond-to(tablet) {
       font-size: 52px;
@@ -57,22 +55,38 @@
       font-size: 34px;
     }
 
-    &:hover {
+    /* Shimmer-слой поверх текста — невидим по умолчанию */
+    &::after {
+      content: attr(data-text);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       background: linear-gradient(
         90deg,
         $navy 0%,
-        $gold 40%,
-        $navy 80%
+        $gold 45%,
+        $navy 90%
       );
-      background-size: 200% auto;
+      background-size: 300% auto;
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
-      animation: shimmer 3s linear infinite;
+      opacity: 0;
+      transition: opacity 0.8s ease;
+      animation: shimmer 6s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    /* Показываем shimmer только на устройствах с hover */
+    @media (hover: hover) {
+      &:hover::after {
+        opacity: 1;
+      }
     }
   }
 
-  /* ── Gold divider ── */
   &__line {
     width: 120px;
     height: 2px;
@@ -81,7 +95,6 @@
     transform-origin: center;
   }
 
-  /* ── Subtitle ── */
   &__title {
     font-size: 20px;
     font-weight: 400;

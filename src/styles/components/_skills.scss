@@ -21,7 +21,6 @@
   }
 }
 
-/* ── Single Skill Card ── */
 .skill-card {
   background: $white;
   border-radius: 14px;
@@ -55,7 +54,6 @@
     }
   }
 
-  /* ── Icon ── */
   &__icon {
     width: 48px;
     height: 48px;
@@ -68,15 +66,18 @@
     }
   }
 
-  /* ── Name ── */
+  /* ── УВЕЛИЧЕННЫЕ ШРИФТЫ ── */
   &__name {
-    font-size: 16px;
+    font-size: 18px;              /* было 16px */
     font-weight: 600;
     color: $navy;
     margin-bottom: 10px;
+
+    @include respond-to(mobile) {
+      font-size: 16px;            /* мобилка без изменений */
+    }
   }
 
-  /* ── Level bars ── */
   &__level {
     display: flex;
     justify-content: center;
@@ -100,10 +101,13 @@
     }
   }
 
-  /* ── Description ── */
   &__description {
-    font-size: 12px;
+    font-size: 14px;              /* было 12px */
     color: rgba($navy, 0.55);
     line-height: 1.5;
+
+    @include respond-to(mobile) {
+      font-size: 12px;            /* мобилка без изменений */
+    }
   }
 }

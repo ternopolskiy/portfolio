@@ -1,7 +1,10 @@
 import { motion } from "framer-motion";
+import { useLanguage } from "../../context/LanguageContext";
 import texture from "../../assets/old_paper_texture.svg";
 
 const Hero = () => {
+  const { t } = useLanguage();
+
   return (
     <section className="hero" id="hero">
       <img
@@ -18,11 +21,12 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          Ciao.
+          {t.hero.greeting}
         </motion.p>
 
         <motion.h1
           className="hero__name"
+          data-text="Ternopolskiy Georgiy"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
@@ -43,7 +47,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.3 }}
         >
-          Full-Stack Developer
+          {t.hero.subtitle}
         </motion.p>
       </div>
     </section>

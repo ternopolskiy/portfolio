@@ -1,27 +1,28 @@
 import { useState, useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
+import { useLanguage } from "../../context/LanguageContext";
+import LanguageSwitcher from "../ui/LanguageSwitcher";
 import BurgerMenu from "../ui/BurgerMenu";
 
-const navLinks = [
-  { name: "Home", target: "hero" },
-  { name: "About", target: "about" },
-  { name: "Skills", target: "skills" },
-  { name: "Projects", target: "projects" },
-  { name: "Contact", target: "footer" },
-];
+const NAV_TARGETS = ["hero", "about", "skills", "projects", "footer"];
+const NAV_KEYS = ["home", "about", "skills", "projects", "contact"];
 
 const Navbar = () => {
+  const { t } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  /* scroll listener */
+  const navLinks = NAV_KEYS.map((key, i) => ({
+    name: t.nav[key],
+    target: NAV_TARGETS[i],
+  }));
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  /* lock body scroll when menu is open */
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
     return () => {
@@ -37,36 +38,36 @@ const Navbar = () => {
   return (
     <nav className={`navbar${scrolled ? " navbar--scrolled" : ""}`}>
       <div className="navbar__inner">
-        {/* Logo */}
         <div className="navbar__logo" onClick={() => scrollTo("hero")}>
           G.T
         </div>
 
-        {/* Desktop links */}
-        <div className="navbar__links">
-          {navLinks.map((l) => (
-            <button
-              key={l.target}
-              className="navbar__link"
-              onClick={() => scrollTo(l.target)}
-            >
-              {l.name}
-            </button>
-          ))}
-        </div>
+        <div className="navbar__right">
+          <div className="navbar__links">
+            {navLinks.map((l) => (
+              <button
+                key={l.target}
+                className="navbar__link"
+                onClick={() => scrollTo(l.target)}
+              >
+                {l.name}
+              </button>
+            ))}
+          </div>
 
-        {/* Burger toggle */}
-        <div
-          className={`navbar__burger${menuOpen ? " navbar__burger--open" : ""}`}
-          onClick={() => setMenuOpen((v) => !v)}
-        >
-          <span />
-          <span />
-          <span />
+          <LanguageSwitcher />
+
+          <div
+            className={`navbar__burger${menuOpen ? " navbar__burger--open" : ""}`}
+            onClick={() => setMenuOpen((v) => !v)}
+          >
+            <span />
+            <span />
+            <span />
+          </div>
         </div>
       </div>
 
-      {/* Mobile menu */}
       <AnimatePresence>
         {menuOpen && (
           <BurgerMenu

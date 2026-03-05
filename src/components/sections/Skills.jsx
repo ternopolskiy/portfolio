@@ -1,16 +1,22 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { useLanguage } from "../../context/LanguageContext";
 import { skills } from "../../data/skills";
 import SectionTitle from "../ui/SectionTitle";
 import SkillCard from "../ui/SkillCard";
 
 const Skills = () => {
+  const { t } = useLanguage();
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.05 });
 
   return (
     <section className="skills" id="skills" ref={ref}>
       <div className="skills__inner">
-        <SectionTitle title="Skills" subtitle="Навыки" centered />
+        <SectionTitle
+          title={t.skills.title}
+          subtitle={t.skills.subtitle}
+          centered
+        />
 
         <div className="skills__grid">
           {skills.map((skill, i) => (

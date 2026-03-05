@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const BurgerMenu = ({ links, onNavigate, onClose }) => {
   return (
     <>
-      {/* Overlay */}
       <motion.div
         className="burger-menu__overlay"
         initial={{ opacity: 0 }}
@@ -12,7 +12,6 @@ const BurgerMenu = ({ links, onNavigate, onClose }) => {
         onClick={onClose}
       />
 
-      {/* Panel */}
       <motion.div
         className="burger-menu__panel"
         initial={{ x: "100%" }}
@@ -33,6 +32,10 @@ const BurgerMenu = ({ links, onNavigate, onClose }) => {
               {link.name}
             </motion.button>
           ))}
+        </div>
+
+        <div className="burger-menu__footer">
+          <LanguageSwitcher />
         </div>
       </motion.div>
     </>

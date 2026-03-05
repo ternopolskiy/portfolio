@@ -1,3 +1,5 @@
+import { useLanguage } from "../../context/LanguageContext";
+
 const LEVEL_MAP = {
   basic: 1,
   medium: 2,
@@ -7,6 +9,7 @@ const LEVEL_MAP = {
 };
 
 const SkillCard = ({ skill }) => {
+  const { lang, t } = useLanguage();
   const { name, icon, level, description } = skill;
   const filled = LEVEL_MAP[level] ?? 1;
   const glow = level === "middle+";
@@ -19,7 +22,10 @@ const SkillCard = ({ skill }) => {
 
       <h3 className="skill-card__name">{name}</h3>
 
-      <div className="skill-card__level" aria-label={`Уровень: ${level}`}>
+      <div
+        className="skill-card__level"
+        aria-label={`${t.skills.levelLabel}: ${level}`}
+      >
         {[1, 2, 3, 4].map((i) => (
           <span
             key={i}
@@ -34,7 +40,7 @@ const SkillCard = ({ skill }) => {
         ))}
       </div>
 
-      <p className="skill-card__description">{description}</p>
+      <p className="skill-card__description">{description[lang]}</p>
     </div>
   );
 };

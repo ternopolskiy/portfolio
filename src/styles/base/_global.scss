@@ -9,7 +9,7 @@ body {
   @include container;
 }
 
-// ── Reusable Section Title ──
+/* ── Section Title ── */
 .section-title {
   margin-bottom: 20px;
 
@@ -27,7 +27,7 @@ body {
     font-size: 14px;
     text-transform: uppercase;
     letter-spacing: 0.15em;
-    color: $gold;
+    color: $chocolate;            /* ← было $gold, стало $chocolate */
     font-weight: 500;
     margin-bottom: 8px;
   }
@@ -45,13 +45,11 @@ body {
   }
 }
 
-// ── Selection ──
 ::selection {
   background: $gold;
   color: $navy;
 }
 
-// ── Accessibility ──
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

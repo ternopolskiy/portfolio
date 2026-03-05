@@ -1,0 +1,47 @@
+@use "../abstracts" as *;
+
+.lang-switcher {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  &__btn {
+    font-family: $font-primary;
+    font-size: 14px;
+    font-weight: 500;
+    color: $cool-grey;
+    letter-spacing: 0.06em;
+    padding: 4px 8px;
+    cursor: pointer;
+    @include transition-default;
+    position: relative;
+    background: none;
+    border: none;
+
+    &--active {
+      color: $navy;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 16px;
+        height: 2px;
+        background: $gold;
+        border-radius: 1px;
+      }
+    }
+
+    &:hover:not(.lang-switcher__btn--active) {
+      color: $chocolate;
+    }
+  }
+
+  &__divider {
+    color: $cool-grey;
+    font-size: 14px;
+    user-select: none;
+  }
+}

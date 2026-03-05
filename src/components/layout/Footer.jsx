@@ -1,3 +1,4 @@
+import { useLanguage } from "../../context/LanguageContext";
 import emailIcon from "../../assets/contacts/email.svg";
 import githubIcon from "../../assets/contacts/github.svg";
 import telegramIcon from "../../assets/contacts/telegram.svg";
@@ -13,10 +14,12 @@ const contacts = [
 ];
 
 const Footer = () => {
+  const { t } = useLanguage();
+
   return (
     <footer className="footer" id="footer">
       <div className="footer__inner">
-        <p className="footer__text">Grazie per la vostra attenzione.</p>
+        <p className="footer__text">{t.footer.text}</p>
 
         <div className="footer__contacts">
           {contacts.map((c) => (
@@ -34,7 +37,7 @@ const Footer = () => {
         </div>
 
         <p className="footer__copyright">
-          © {new Date().getFullYear()} Ternopolskiy Georgiy. All rights reserved.
+          © {new Date().getFullYear()} Ternopolskiy Georgiy. {t.footer.copyright}
         </p>
       </div>
     </footer>

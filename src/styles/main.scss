@@ -1,15 +1,13 @@
-// ── Abstracts (variables, mixins, animations) ──
 @use "abstracts";
 
-// ── Base ──
 @use "base/reset";
 @use "base/typography";
 @use "base/global";
 
-// ── Components ──
 @use "components/navbar";
 @use "components/hero";
 @use "components/about";
 @use "components/skills";
 @use "components/projects";
 @use "components/footer";
+@use "components/language-switcher";

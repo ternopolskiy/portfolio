@@ -24,7 +24,6 @@
     align-items: center;
   }
 
-  /* ── Logo ── */
   &__logo {
     font-size: 26px;
     font-weight: 700;
@@ -39,7 +38,17 @@
     }
   }
 
-  /* ── Desktop Links ── */
+  /* ── Правая часть: ссылки + язык + бургер ── */
+  &__right {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+
+    @include respond-to(tablet) {
+      gap: 20px;
+    }
+  }
+
   &__links {
     display: flex;
     gap: 40px;
@@ -77,7 +86,6 @@
     }
   }
 
-  /* ── Burger Button ── */
   &__burger {
     display: none;
     flex-direction: column;
@@ -114,7 +122,7 @@
   }
 }
 
-/* ── Mobile Burger Menu ── */
+/* ── Burger Menu Panel ── */
 .burger-menu {
   &__overlay {
     position: fixed;
@@ -136,6 +144,8 @@
     z-index: 999;
     padding: 110px 40px 40px;
     box-shadow: -8px 0 40px rgba($black, 0.08);
+    display: flex;
+    flex-direction: column;
 
     @include respond-to(mobile) {
       width: 100%;
@@ -154,10 +164,22 @@
     color: $navy;
     letter-spacing: 0.03em;
     @include transition-default;
+    background: none;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    font-family: $font-primary;
 
     &:hover {
       color: $gold;
       transform: translateX(8px);
     }
+  }
+
+  /* ── Переключатель языка внизу панели ── */
+  &__footer {
+    margin-top: auto;
+    padding-top: 32px;
+    border-top: 1px solid rgba($gold, 0.2);
   }
 }
