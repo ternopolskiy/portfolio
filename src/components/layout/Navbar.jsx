@@ -4,8 +4,8 @@ import { useLanguage } from "../../context/LanguageContext";
 import LanguageSwitcher from "../ui/LanguageSwitcher";
 import BurgerMenu from "../ui/BurgerMenu";
 
-const NAV_TARGETS = ["hero", "about", "skills", "projects", "footer"];
-const NAV_KEYS = ["home", "about", "skills", "projects", "contact"];
+const NAV_TARGETS = ["hero", "about", "current-focus", "skills", "projects", "footer"];
+const NAV_KEYS = ["home", "about", "currentFocus", "skills", "projects", "contact"];
 
 const Navbar = () => {
   const { t } = useLanguage();

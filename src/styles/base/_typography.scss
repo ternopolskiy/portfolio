@@ -1,13 +1,14 @@
 @use "../abstracts" as *;
 
 body {
-  font-family: $font-primary;
+  font-family: $font-body;
   font-size: 16px;
   line-height: 1.6;
   color: $navy;
 }
 
 h1 {
+  font-family: $font-heading;
   font-size: 72px;
   font-weight: 700;
   letter-spacing: 0.05em;
@@ -21,6 +22,7 @@ h1 {
 }
 
 h2 {
+  font-family: $font-heading;
   font-size: 42px;
   font-weight: 600;
   letter-spacing: 0.05em;
@@ -34,6 +36,7 @@ h2 {
 }
 
 h3 {
+  font-family: $font-heading;
   font-size: 28px;
   font-weight: 500;
 
@@ -43,6 +46,7 @@ h3 {
 }
 
 p {
+  font-family: $font-body;
   font-size: 18px;
 
   @include respond-to(mobile) {
