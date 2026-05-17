@@ -38,21 +38,29 @@
     border-radius: 50%;
     @include transition-default;
 
-    img {
-      width: 24px;
-      height: 24px;
-      filter: brightness(0) invert(1);
-      @include transition-default;
-    }
-
-    &:hover {
-      transform: scale(1.15);
-      background: rgba($gold, 0.1);
-
       img {
-        filter: brightness(0) invert(1) drop-shadow(0 0 6px rgba($gold, 0.8));
+        width: 24px;
+        height: 24px;
+        filter: brightness(0) invert(1);
+        @include transition-default;
       }
-    }
+
+      &--gitverse img {
+        filter: none;
+      }
+
+      &:hover {
+        transform: scale(1.15);
+        background: rgba($gold, 0.1);
+
+        img {
+          filter: brightness(0) invert(1) drop-shadow(0 0 6px rgba($gold, 0.8));
+        }
+
+        &.footer__contact-link--gitverse img {
+          filter: drop-shadow(0 0 6px rgba($gold, 0.8));
+        }
+      }
   }
 
   /* ── Bottom line ── */
